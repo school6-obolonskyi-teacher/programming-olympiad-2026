@@ -1,0 +1,60 @@
+# Ignore personal/private files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.env
+.env.local
+
+# Ignore compiled files
+*.o
+*.exe
+*.dll
+*.dylib
+*.so
+*.a
+*.out
+*.class
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv
+
+# IDE and editor files
+.sublime-project
+.sublime-workspace
+*.iml
+.gradle/
+.mvn/
+target/
+
+# OS-specific
+Thumbs.db
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+
+# Student work (if stored locally)
+student_solutions/
+my_attempts/
+local_tests/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Temporary test files
+test_output.txt
+debug.log
+
+# Personal notes
+NOTES.md
+PRIVATE.txt
