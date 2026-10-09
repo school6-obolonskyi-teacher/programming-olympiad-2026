@@ -1,214 +1,220 @@
-# 🏆 Programming Olympiad 2026 - Preparation Guide
+# 🏆 Олімпіада з програмування 2026 — Посібник підготовки
 
-**Language:** Ukrainian (Українська) | **Level:** Junior League (6-9 grades) | **Status:** Active Preparation
-
----
-
-## 📌 About This Project
-
-This repository contains **comprehensive training materials** for students preparing for the **2026 Programming Olympiad** (junior league). Materials are developed and tested at **Gymnasium №6** in Dnipro, Ukraine.
-
-**Goal:** Provide free, open-source educational resources for programming olympiad preparation.
-
-### 🎯 Project Scope:
-- **7 practice problems** with theory and solutions
-- **Structured curriculum** (Beginner → Intermediate → Advanced)
-- **Multiple language solutions** (C++ + Python)
-- **Teacher reference guide** with pedagogical notes
-- **Olympiad rules and format** documentation
+**Мова:** Українська (Українська мова) | **Рівень:** Молодіжна ліга (6-9 класи) | **Статус:** ✅ Активна підготовка
 
 ---
 
-## 📚 Contents
+## 📌 Про цей проект
 
-### For Students (`/students`)
-- 📖 **GUIDE.md** — How to use these materials
-- **3 difficulty levels:**
-  - 🟢 **Beginner** (Codeforces 800-900): Problems 1, 2, 5
-  - 🟡 **Intermediate** (Codeforces 900-1000): Problems 3, 4, 6
-  - 🔴 **Advanced** (Codeforces 1100+): Problem 7
+Цей репозиторій містить **комплексні матеріали для підготовки** до **Олімпіади з програмування 2026** (молодіжна ліга). Матеріали розроблені та випробовані в **Гімназії №6** м. Дніпро, Україна.
 
-Each problem includes:
-- Problem statement
-- Theoretical explanation
-- Examples with test cases
-- Learning objectives
+**Мета:** Надати безкоштовні, відкриті освітні ресурси для підготовки до олімпіади з програмування.
 
-### For Teachers (`/solutions`)
-- 🔑 **REFERENCE.md** — Complete solutions with explanations
-- All solutions in **C++ and Python**
-- Complexity analysis
-- Common student mistakes and fixes
-- Pedagogical tips
-
-### Documentation (`/docs`)
-- 📋 **OLYMPIAD_FORMAT.md** — Rules and contest structure
-- 📅 **PREPARATION_PLAN.md** — 4-week curriculum
-- 🔗 **RESOURCES.md** — Links to training platforms
-- 📖 **GLOSSARY.md** — Programming terminology
-
-### Testing (`/tests`)
-- Test cases for all problems
-- Test runner script
-- Expected outputs
+### 🎯 Обсяг проекту:
+- **7 практичних завдань** з теорією та розв'язаннями
+- **Структурована програма** (Початківець → Проміжний → Продвинутий)
+- **Розв'язання кількома мовами** (C++ та Python)
+- **Посібник для вчителя** з педагогічними примітками
+- **Документація правил та формату** олімпіади
 
 ---
 
-## 🚀 Quick Start
+## 📚 Вміст репозиторію
 
-### For Students:
-1. Start with **`students/GUIDE.md`** for orientation
-2. Choose a problem from **Beginner level**
-3. Read the **theory section**
-4. Solve the problem **independently**
-5. Check your solution against test cases
-6. Review the reference solution
-7. Progress to the next level
+### Для учнів (`завдання/`)
+- 📖 **ВКАЗІВКИ.md** — Як користуватися матеріалами
+- **3 рівні складності:**
+  - 🟢 **Початківець** (Codeforces 800-900): Завдання 1, 2, 5
+  - 🟡 **Проміжний** (Codeforces 900-1000): Завдання 3, 4, 6
+  - 🔴 **Продвинутий** (Codeforces 1100+): Завдання 7
 
-### For Teachers:
-1. Use **`students/GUIDE.md`** as teaching material
-2. Refer to **`solutions/REFERENCE.md`** for grading
-3. Assign problems based on student level
-4. Use **`docs/PREPARATION_PLAN.md`** for scheduling
+Кожне завдання включає:
+- Формулювання задачі
+- Теоретичне пояснення
+- Приклади з тестовими кейсами
+- Мету навчання
 
----
+### Для вчителів (`розв'язання/`)
+- 🔑 **ПОСІБНИК.md** — Повні розв'язання з поясненнями
+- Всі розв'язання на **C++ та Python**
+- Аналіз складності
+- Поширені помилки учнів та їхні виправлення
+- Педагогічні поради
 
-## 📊 Problem Difficulty Progression
-
-| Problem | Title | Level | Topics | Time |
-|---------|-------|-------|--------|------|
-| 1 | Sum of Digits | 🟢 Beginner | Loops, Modulo | 30 min |
-| 2 | Even and Odd | 🟢 Beginner | Conditionals, Loops | 30 min |
-| 5 | Find Minimum | 🟢 Beginner | Arrays, Conditionals | 30 min |
-| 3 | Pyramid | 🟡 Intermediate | Nested Loops | 45 min |
-| 4 | Palindrome | 🟡 Intermediate | Strings | 45 min |
-| 6 | Anagrams | 🟡 Intermediate | Strings, Sorting | 45 min |
-| 7 | Fibonacci | 🔴 Advanced | Math Sequences | 60 min |
+### Документація (`документація/`)
+- 📋 **ФОРМАТ-ОЛІМПІАДИ.md** — Правила та структура змагання
+- 📅 **ПЛАН-ПІДГОТОВКИ.md** — 4-тижнева програма навчання
+- 🔗 **РЕСУРСИ.md** — Посилання на платформи для тренування
+- 📖 **ГЛОСАРІЙ.md** — Терміни з програмування
 
 ---
 
-## 🛠️ Technologies Used
+## 🚀 Швидкий старт
 
-- **Languages:** C++, Python 3
-- **Platforms:** Codeforces, AtCoder, SPOJ
-- **Tools:** VS Code, Online GDB, GitHub
+### Для учнів:
+1. Почніть з **`завдання/ВКАЗІВКИ.md`** для орієнтації
+2. Виберіть завдання з рівня **Початківець**
+3. Прочитайте розділ **теорія**
+4. Розв'яжіть завдання **самостійно**
+5. Перевірте рішення на тестових кейсах
+6. Вивчіть еталонне розв'язання
+7. Переходьте до наступного рівня
+
+### Для вчителів:
+1. Використовуйте **`завдання/ВКАЗІВКИ.md`** як матеріал для навчання
+2. Звертайтеся до **`розв'язання/ПОСІБНИК.md`** при оцінюванні
+3. Призначайте завдання відповідно до рівня учня
+4. Використовуйте **`документація/ПЛАН-ПІДГОТОВКИ.md`** для планування
 
 ---
 
-## 📋 File Structure
+## 📊 Таблиця завдань за складністю
+
+| Завдання | Назва | Рівень | Теми | Час |
+|----------|-------|--------|------|-----|
+| 1 | Сума цифр | 🟢 Початківець | Цикли, Модуль | 30 хв |
+| 2 | Парні та непарні | 🟢 Початківець | Умови, Цикли | 30 хв |
+| 5 | Пошук мінімуму | 🟢 Початківець | Масиви, Умови | 30 хв |
+| 3 | Піраміда | 🟡 Проміжний | Вкладені цикли | 45 хв |
+| 4 | Паліндром | 🟡 Проміжний | Рядки | 45 хв |
+| 6 | Анаграми | 🟡 Проміжний | Рядки, Сортування | 45 хв |
+| 7 | Послідовність Фібоначчі | 🔴 Продвинутий | Математичні послідовності | 60 хв |
+
+---
+
+## 🛠️ Технології
+
+- **Мови програмування:** C++, Python 3
+- **Платформи:** Codeforces, AtCoder, SPOJ
+- **Засоби:** VS Code, OnlineGDB, GitHub
+
+---
+
+## 📋 Структура файлів
 
 ```
 programming-olympiad-2026/
-├── README.md (this file)
+├── README.md (цей файл)
 ├── LICENSE (MIT)
 ├── CONTRIBUTING.md
 ├── .gitignore
 │
-├── students/
-│   ├── GUIDE.md
-│   ├── 01-beginner/
-│   │   ├── problem-01-sum-digits.md
-│   │   ├── problem-02-even-odd.md
-│   │   └── problem-05-minimum.md
-│   ├── 02-intermediate/
-│   │   ├── problem-03-pyramid.md
-│   │   ├── problem-04-palindrome.md
-│   │   └── problem-06-anagrams.md
-│   └── 03-advanced/
-│       └── problem-07-fibonacci.md
+├── завдання/
+│   ├── ВКАЗІВКИ.md
+│   ├── 01-початківець/
+│   │   ├── завдання-01-сума-цифр.md
+│   │   ├── завдання-02-парні-непарні.md
+│   │   └── завдання-05-мінімум.md
+│   ├── 02-проміжний/
+│   │   ├── завдання-03-піраміда.md
+│   │   ├── завдання-04-паліндром.md
+│   │   └── завдання-06-анаграми.md
+│   └── 03-продвинутий/
+│       └── завдання-07-фібоначчі.md
 │
-├── solutions/
-│   ├── REFERENCE.md
-│   ├── 01-beginner/
-│   │   ├── solution-01.cpp
-│   │   ├── solution-01.py
-│   │   ├── solution-02.cpp
-│   │   ├── solution-02.py
-│   │   ├── solution-05.cpp
-│   │   └── solution-05.py
-│   ├── 02-intermediate/
-│   ├── 03-advanced/
+├── розв'язання/
+│   ├── ПОСІБНИК.md
+│   ├── 01-початківець/
+│   │   ├── розв'язання-01.cpp
+│   │   ├── розв'язання-01.py
+│   │   ├── тести-01.txt
+│   │   ├── розв'язання-02.cpp
+│   │   ├── розв'язання-02.py
+│   │   ├── тести-02.txt
+│   │   ├── розв'язання-05.cpp
+│   │   ├── розв'язання-05.py
+│   │   └── тести-05.txt
+│   ├── 02-проміжний/
+│   │   ├── розв'язання-03.cpp
+│   │   ├── розв'язання-03.py
+│   │   ├── тести-03.txt
+│   │   ├── розв'язання-04.cpp
+│   │   ├── розв'язання-04.py
+│   │   ├── тести-04.txt
+│   │   ├── розв'язання-06.cpp
+│   │   ├── розв'язання-06.py
+│   │   └── тести-06.txt
+│   └── 03-продвинутий/
+│       ├── розв'язання-07.cpp
+│       ├── розв'язання-07.py
+│       └── тести-07.txt
 │
-├── docs/
-│   ├── OLYMPIAD_FORMAT.md
-│   ├── PREPARATION_PLAN.md
-│   ├── RESOURCES.md
-│   └── GLOSSARY.md
-│
-└── tests/
-    ├── test_runner.py
-    └── test_cases.json
+├── документація/
+│   ├── ФОРМАТ-ОЛІМПІАДИ.md
+│   ├── ПЛАН-ПІДГОТОВКИ.md
+│   ├── РЕСУРСИ.md
+│   └── ГЛОСАРІЙ.md
 ```
 
 ---
 
-## 📖 How to Contribute
+## 📖 Як внести свій внесок
 
-See **`CONTRIBUTING.md`** for guidelines. We welcome:
-- Additional problems
-- Alternative solutions
-- Language translations
-- Bug reports and suggestions
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License** and **Creative Commons Attribution-ShareAlike 4.0**.
-
-You are free to:
-- ✅ Use for educational purposes
-- ✅ Share and distribute
-- ✅ Modify and adapt
-- ✅ Use commercially
-
-You must:
-- ✅ Attribute the original work
-- ✅ Keep the same license
-
-See **`LICENSE`** file for details.
+Див. **`CONTRIBUTING.md`** для рекомендацій. Ми приймаємо:
+- Нові завдання
+- Альтернативні розв'язання
+- Переклади мовами
+- Звіти про помилки та пропозиції
 
 ---
 
-## 👨‍🏫 Attribution
+## 📜 Ліцензія
 
-**Developed at:** Gymnasium №6, Dnipro, Ukraine  
-**Language:** Ukrainian  
-**Target Audience:** Junior Programming Olympiad Participants  
-**Year:** 2026
+Цей проект ліцензований під **MIT License** та **Creative Commons Attribution-ShareAlike 4.0**.
 
----
+Вам дозволено:
+- ✅ Використовувати в освітніх цілях
+- ✅ Поширювати та розповсюджувати
+- ✅ Змінювати та адаптувати
+- ✅ Використовувати комерційно
 
-## 💬 Questions & Support
+Ви повинні:
+- ✅ Вказати авторство оригіналу
+- ✅ Зберегти ту ж ліцензію
 
-- Open an **Issue** on GitHub for bugs or suggestions
-- Create a **Discussion** for questions
-- Submit a **Pull Request** for improvements
-
----
-
-## 🔗 External Resources
-
-- [Codeforces](https://codeforces.com/) — Main practice platform
-- [AtCoder](https://atcoder.jp/) — Quality problems
-- [CP-Algorithms](https://cp-algorithms.com/) — Algorithm reference
-- [Ukrainian Olympiad Info](https://mon.gov.ua/) — Official regulations
+Див. файл **`LICENSE`** для деталей.
 
 ---
 
-## 📊 Project Statistics
+## 👨‍🏫 Авторство
 
-- **Problems:** 7 (beginner → advanced)
-- **Total Solutions:** 14 (C++ + Python)
-- **Documentation Pages:** 8+
-- **Contributors:** Welcome!
-
----
-
-**Last Updated:** October 2026  
-**Status:** ✅ Active  
-**Maintained by:** Olympiad Preparation Team
+**Розроблено в:** Гімназія №6, м. Дніпро, Україна  
+**Мова:** Українська  
+**Цільова аудиторія:** Учасники молодіжної олімпіади з програмування  
+**Рік:** 2026
 
 ---
 
-**Ready to train? Start with [students/GUIDE.md](students/GUIDE.md)! 🚀**
+## 💬 Питання та підтримка
+
+- Відкрийте **Issue** на GitHub для звітів про помилки та пропозицій
+- Створіть **Discussion** для питань
+- Відправте **Pull Request** для поліпшень
+
+---
+
+## 🔗 Зовнішні ресурси
+
+- [Codeforces](https://codeforces.com/) — Основна платформа для тренування
+- [AtCoder](https://atcoder.jp/) — Якісні завдання
+- [CP-Algorithms](https://cp-algorithms.com/) — Довідник алгоритмів
+- [Офіційна інформація про олімпіади](https://mon.gov.ua/) — Офіційні положення
+
+---
+
+## 📊 Статистика проекту
+
+- **Завдання:** 7 (від початківця до продвинутого)
+- **Всього розв'язань:** 14 (C++ та Python)
+- **Сторінок документації:** 8+
+- **Співавтори:** Добро пожаловать!
+
+---
+
+**Остання оновлення:** Жовтень 2026  
+**Статус:** ✅ Активно розвивається  
+**Розробка:** Команда підготовки до олімпіади
+
+---
+
+**Готові до тренування? Почніть з [завдання/ВКАЗІВКИ.md](завдання/ВКАЗІВКИ.md)! 🚀**

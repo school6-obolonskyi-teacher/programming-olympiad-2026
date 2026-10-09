@@ -1,73 +1,74 @@
-# Contribution Guidelines
+# 📝 Рекомендації щодо внеску
 
-Thank you for interest in contributing! This project welcomes improvements, bug reports, and new materials.
-
----
-
-## 📋 How to Contribute
-
-### Reporting Issues
-1. Open an **Issue** on GitHub
-2. Describe the problem clearly
-3. Include examples if possible
-4. Suggest a solution if you have one
-
-### Submitting Improvements
-
-#### For Bug Fixes:
-1. Fork the repository
-2. Create a branch: `git checkout -b fix/issue-description`
-3. Make changes
-4. Test your changes
-5. Submit a Pull Request with description
-
-#### For New Content:
-1. Follow the existing file structure
-2. Use the same formatting as existing problems
-3. Include both C++ and Python solutions
-4. Add test cases
-5. Submit Pull Request
-
-### Guidelines for Pull Requests
-
-**Before submitting:**
-- ✅ Check code syntax and formatting
-- ✅ Verify test cases work
-- ✅ Remove any personal/private information
-- ✅ Follow the existing style
-- ✅ Update documentation if needed
-
-**PR Description should include:**
-- What changes were made
-- Why these changes are necessary
-- Which issue(s) it addresses
-- Any side effects or considerations
+Дякуємо за інтерес до внеску! Цей проект приймає поліпшення, звіти про помилки та нові матеріали.
 
 ---
 
-## 🎯 Content Standards
+## 📋 Як внести свій внесок
 
-### For Problem Statements:
-- Clear and unambiguous
-- Include examples
-- Specify constraints (N range, time limit)
-- In both Ukrainian and English preferred
+### Звітування про помилки
 
-### For Solutions:
-- Working code in both C++ and Python
-- Comments explaining key parts
-- Complexity analysis (Time and Space)
-- Test cases with expected output
+1. Відкрийте **Issue** на GitHub
+2. Чітко опишіть проблему
+3. Включіть приклади, якщо можливо
+4. Запропонуйте рішення, якщо маєте
 
-### For Documentation:
-- Use clear language
-- Explain concepts for beginners
-- Include links to external resources
-- Keep formatting consistent
+### Подання поліпшень
+
+#### Для виправлення помилок:
+1. Форкніть репозиторій
+2. Створіть гілку: `git checkout -b fix/опис-проблеми`
+3. Зробіть зміни
+4. Протестуйте вашу роботу
+5. Відправте Pull Request з описом
+
+#### Для нового вмісту:
+1. Дотримуйтеся існуючої структури файлів
+2. Використовуйте той же формат, що й існуючи завдання
+3. Включіть розв'язання на C++ та Python
+4. Додайте тестові кейси
+5. Відправте Pull Request
+
+### Рекомендації для Pull Requests
+
+**Перед відправленням:**
+- ✅ Перевірте синтаксис коду
+- ✅ Переконайтеся, що тестові кейси працюють
+- ✅ Видаліть особисту/приватну інформацію
+- ✅ Дотримуйтеся існуючого стилю
+- ✅ Оновіть документацію, якщо потрібно
+
+**Опис PR повинен включати:**
+- Які зміни були зроблені
+- Чому ці зміни потрібні
+- Які проблеми це вирішує
+- Можливі побічні ефекти
 
 ---
 
-## 🚀 Code Style
+## 🎯 Стандарти вмісту
+
+### Для формулювань завдань:
+- Чіткі та однозначні
+- Включені приклади
+- Вказані обмеження (діапазон N, часовий ліміт)
+- Українська мова
+
+### Для розв'язань:
+- Рабоче код на C++ та Python
+- Коментарі, що пояснюють ключові частини
+- Аналіз складності (час і пам'ять)
+- Тестові кейси з очікуваним виводом
+
+### Для документації:
+- Чіткі пояснення
+- Приклади для новачків
+- Посилання на зовнішні ресурси
+- Послідовне форматування
+
+---
+
+## 🚀 Стиль коду
 
 ### C++:
 ```cpp
@@ -78,7 +79,7 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    // Code here
+    // Ваш код тут
     
     return 0;
 }
@@ -88,50 +89,50 @@ int main() {
 ```python
 #!/usr/bin/env python3
 
-def solve():
-    # Code here
+def main():
+    # Ваш код тут
     pass
 
 if __name__ == "__main__":
-    solve()
+    main()
 ```
 
 ---
 
-## 📝 Commit Messages
+## 📝 Повідомлення про комітисци
 
-Use clear commit messages:
-- `Add problem X - Title`
-- `Fix solution Y - Issue description`
-- `Update docs - Changes made`
-- `Refactor problem Z - Improvements`
-
----
-
-## 🔒 Privacy & Security
-
-**Before submitting, ensure:**
-- ❌ No student names or personal data
-- ❌ No email addresses or phone numbers
-- ❌ No passwords, API keys, or secrets
-- ✅ Generic content suitable for all students
+Використовуйте чіткі повідомлення про комітисци:
+- `Додати завдання X - Назва`
+- `Виправити розв'язання Y - Опис проблеми`
+- `Оновити документацію - Зміни`
+- `Рефакторити завдання Z - Поліпшення`
 
 ---
 
-## ⚖️ License
+## 🔒 Конфіденційність та безпека
 
-By contributing, you agree that your contributions will be licensed under the same license as the project (MIT + CC BY-SA 4.0).
-
----
-
-## 💬 Questions?
-
-- Open a Discussion on GitHub
-- Ask in the Issues section
-- Contact the maintainer
+**Перед відправленням, переконайтеся:**
+- ❌ Немає імен учнів чи особистих даних
+- ❌ Немає адрес електронної пошти чи номерів телефонів
+- ❌ Немає паролів, ключів API чи таємниці
+- ✅ Вміст підходить для всіх учнів
 
 ---
 
-**Thank you for making this project better! 🙏**
+## ⚖️ Ліцензія
 
-*Last Updated: October 2026*
+Внісши внесок, ви погоджуєтеся, що ваш внесок буде ліцензований на умовах ліцензії проекту (MIT + CC BY-SA 4.0).
+
+---
+
+## 💬 Питання?
+
+- Відкрийте **Discussion** на GitHub
+- Запитайте в розділі **Issues**
+- Зв'яжіться з модератором
+
+---
+
+**Дякуємо за те, що робите цей проект краще! 🙏**
+
+*Остання оновлення: Жовтень 2026*
