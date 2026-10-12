@@ -1,0 +1,36 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/28-спокійний-період/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Підзадача 1 (n ≤ 300):
+s-rand: seed=11 n=300 amax=10 k=3 mode=random
+s-big: seed=12 n=300 amax=1000000000 k=300000000 mode=random
+s-walk: seed=13 n=300 amax=1000000000 k=100 mode=walk step=10
+s-tie: seed=14 n=300 amax=1000000000 k=5 mode=tie len=20 cnt=3
+s-zig: seed=15 n=300 mode=zigzag low=5 delta=3 noise=1 k=3
+s-k0: seed=16 n=300 amax=2 k=0 mode=random
+# Підзадача 2 (n ≤ 5000):
+m-rand: seed=21 n=5000 amax=100 k=20 mode=random
+m-walk: seed=22 n=5000 amax=1000000000 k=5000 mode=walk step=400
+m-all: seed=23 n=5000 amax=1000000000 k=1000000000 mode=random
+m-tie: seed=24 n=5000 amax=1000000000 k=1000 mode=tie len=500 cnt=4
+m-incr: seed=25 n=5000 mode=incr step=3 k=6000
+m-k0runs: seed=26 n=5000 amax=5 k=0 mode=runs runmax=50
+# Підзадача 3 (k = 0):
+k0-runs: seed=31 n=200000 amax=1000000000 k=0 mode=runs runmax=1000
+k0-equal: seed=32 n=200000 amax=1000000000 k=0 mode=equal
+k0-rand: seed=33 n=200000 amax=3 k=0 mode=random
+k0-tie: seed=34 n=200000 amax=1000000000 k=0 mode=tie len=5000 cnt=3
+k0-long: seed=35 n=200000 amax=1000000000 k=0 mode=tie len=60000 cnt=2
+# Повні обмеження:
+big-rand: seed=41 n=200000 amax=1000000000 k=10000000 mode=random
+big-rand2: seed=42 n=200000 amax=1000 k=300 mode=random
+big-walk: seed=43 n=200000 amax=1000000000 k=100000 mode=walk step=1000
+big-walk2: seed=44 n=200000 amax=1000000000 k=200000 mode=walk step=1000
+big-all: seed=45 n=200000 amax=1000000000 k=1000000000 mode=random
+big-incr: seed=46 n=200000 mode=incr step=5000 k=500000000
+big-dec: seed=47 n=200000 mode=incr step=1 dec=1 k=150000
+big-zig: seed=48 n=200000 mode=zigzag low=0 delta=1000000000 noise=0 k=999999999
+big-zig2: seed=49 n=200000 mode=zigzag low=100 delta=10 noise=5 k=12
+big-tie: seed=50 n=200000 amax=1000000000 k=1000 mode=tie len=3000 cnt=5
+big-tie2: seed=53 n=200000 amax=1000000000 k=5 mode=tie len=50000 cnt=3
+big-dup: seed=51 n=200000 amax=2 k=1 mode=random
+big-runs: seed=52 n=200000 amax=10 k=2 mode=runs runmax=300

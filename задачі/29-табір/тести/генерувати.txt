@@ -1,0 +1,33 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/29-табір/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Підзадача 1 (n ≤ 1000):
+s-tiny: seed=10 n=8 mode=random
+s-rand: seed=11 n=1000 mode=random
+s-deep: seed=12 n=1000 mode=deep w=3
+s-cater: seed=13 n=1000 mode=cater spine=300
+s-broom: seed=14 n=1000 mode=broom spine=600
+s-spider: seed=15 n=1000 mode=spider legs=5
+s-star: seed=16 n=1000 mode=star
+s-binary: seed=17 n=1000 mode=binary
+s-even: seed=51 n=1000 mode=random parity=even
+s-odd: seed=63 n=1000 mode=random parity=odd
+# Підзадача 2 (ланцюжок):
+s-chain: seed=18 n=1000 mode=chain
+c-big1: seed=21 n=200000 mode=chain shuffle=0 order=keep swap=0
+c-big2: seed=22 n=200000 mode=chain
+c-big3: seed=23 n=199999 mode=chain order=keep
+# Підзадача 3 (довжина найдовшого шляху парна) і повні обмеження:
+e-rand: seed=52 n=200000 mode=random parity=even
+e-deep: seed=53 n=200000 mode=deep w=3 parity=even
+e-spider: seed=54 n=200000 mode=spider legs=3 parity=even
+o-rand: seed=61 n=200000 mode=random parity=odd
+o-cater: seed=62 n=200000 mode=cater spine=100000 parity=odd
+r-big: seed=31 n=200000 mode=random
+deep3: seed=32 n=200000 mode=deep w=3
+deep10: seed=33 n=200000 mode=deep w=10 shuffle=0
+cater: seed=34 n=200000 mode=cater spine=100000
+broom: seed=35 n=200000 mode=broom spine=150000 shuffle=0 order=keep
+spider3: seed=36 n=200000 mode=spider legs=3
+spider1000: seed=37 n=200000 mode=spider legs=1000
+star: seed=38 n=200000 mode=star
+binary: seed=39 n=200000 mode=binary

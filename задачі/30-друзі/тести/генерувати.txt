@@ -1,0 +1,30 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/30-друзі/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Підзадача 1 (n, m ≤ 1000):
+s-rand: seed=11 n=1000 m=1000 mode=random
+s-self: seed=12 n=300 m=1000 mode=random self=0.3
+s-repeat: seed=13 n=1000 m=1000 mode=repeat pool=30
+s-local: seed=14 n=1000 m=1000 mode=local dmax=3
+s-chain: seed=15 n=1000 m=1000 mode=chain dir=up
+s-star: seed=16 n=1000 m=1000 mode=star
+# Підзадача 2 (n ≤ 1000):
+m-rand: seed=21 n=1000 m=200000 mode=random
+m-repeat: seed=22 n=1000 m=200000 mode=repeat pool=500
+m-chain1: seed=23 n=1000 m=200000 mode=chain dir=up
+m-chain2: seed=24 n=1000 m=200000 mode=chain dir=down swap=1
+m-tiny: seed=25 n=5 m=200000 mode=random self=0.2
+m-one: seed=26 n=1 m=200000 mode=random
+# Повні обмеження:
+big-rand: seed=31 n=200000 m=200000 mode=random
+big-self: seed=32 n=200000 m=200000 mode=random self=0.1
+big-sparse: seed=33 n=200000 m=1000 mode=random
+big-local: seed=34 n=200000 m=200000 mode=local dmax=2
+big-repeat: seed=35 n=200000 m=200000 mode=repeat pool=100000
+big-star: seed=36 n=200000 m=200000 mode=star
+big-star-rev: seed=37 n=200000 m=200000 mode=star rev=1
+chain-up: seed=41 n=100000 m=200000 mode=chain dir=up
+chain-up-sw: seed=42 n=100000 m=200000 mode=chain dir=up swap=1
+chain-down: seed=43 n=100000 m=200000 mode=chain dir=down
+chain-down-sw: seed=44 n=100000 m=200000 mode=chain dir=down swap=1
+chain-full: seed=45 n=200000 m=200000 mode=chain dir=up
+merge: seed=46 n=200000 m=200000 mode=merge

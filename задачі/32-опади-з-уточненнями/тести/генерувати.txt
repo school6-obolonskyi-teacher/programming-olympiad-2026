@@ -1,0 +1,29 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/32-опади-з-уточненнями/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Підзадача 1 (n, q ≤ 1000):
+s1-rand: seed=11 n=1000 q=1000
+s1-zero: seed=12 n=1000 q=1000 zero=70 smode=exact
+s1-pool: seed=13 n=1000 q=1000 p1=2 pos=pool pool=5
+s1-small: seed=14 n=10 q=1000 amax=5 zero=40
+s1-over: seed=15 n=1000 q=1000 smode=over
+# Підзадача 2 (уточнень немає):
+s2-rand: seed=21 n=200000 q=200000 p1=0
+s2-zero: seed=22 n=200000 q=200000 p1=0 zero=80 smode=exact
+s2-only3: seed=23 n=200000 q=200000 p1=0 p2=0 p3=1
+s2-over: seed=24 n=200000 q=200000 p1=0 p2=1 p3=3 smode=over
+s2-short: seed=25 n=1000 q=200000 p1=0 zero=50 smode=exact
+# Підзадача 3 (запитів типу 3 немає):
+s3-rand: seed=31 n=200000 q=200000 p3=0
+s3-pool: seed=32 n=200000 q=200000 p3=0 pos=pool pool=3
+s3-first: seed=33 n=200000 q=200000 p3=0 order=updates-first
+s3-zero: seed=34 n=200000 q=200000 p3=0 zero=50
+s3-full: seed=35 n=200000 q=200000 p3=0 lr=full
+# Повні обмеження:
+big-rand: seed=41 n=200000 q=200000
+big-zero: seed=42 n=200000 q=200000 zero=60 smode=exact
+big-over: seed=43 n=200000 q=200000 p3=3 smode=over
+big-pool: seed=44 n=200000 q=200000 pos=pool pool=5 zero=30
+big-max: seed=45 n=200000 q=200000 p1=1 p2=1 p3=2
+big-exact: seed=46 n=200000 q=200000 p1=1 p2=0 p3=3 zero=90 smode=exact
+big-first: seed=47 n=200000 q=200000 order=updates-first zero=50
+big-full: seed=48 n=200000 q=200000 lr=full

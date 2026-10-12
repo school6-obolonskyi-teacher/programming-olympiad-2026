@@ -5,16 +5,15 @@ using namespace std;
 int main() {
     string s;
     cin >> s;
-    int n = s.size();
-    for (int i = 0; i < n; i++)
-        s[i] = tolower(s[i]);
-    bool ok = true;
-    for (int i = 0; i < n / 2 - 1; i++)
-        if (s[i] != s[n - 1 - i])
-            ok = false;
-    if (ok)
-        cout << "YES" << endl;
+    string t = "";
+    for (char c : s)
+        if (isalpha(c))
+            t += tolower(c);
+    string r = t;
+    reverse(r.begin(), r.end());
+    if (t == r)
+        cout << "YES\n";
     else
-        cout << "NO" << endl;
+        cout << "NO\n";
     return 0;
 }

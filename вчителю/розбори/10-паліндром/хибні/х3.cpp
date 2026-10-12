@@ -1,5 +1,7 @@
 // Хибний розв'язок для режиму «Злам»: знайдіть коректний тест, на якому він помиляється.
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <cstdlib>
 using namespace std;
 
 int main() {
@@ -7,11 +9,9 @@ int main() {
     cin >> s;
     int n = s.size();
     bool ok = true;
-    for (int i = 0; i < n / 2; i++) {
-        if (tolower(s[i]) != s[n - 1 - i]) {
+    for (int i = 0, j = n - 1; i < j; i++, j--) {
+        if (s[i] != s[j] && abs(s[i] - s[j]) != 32)
             ok = false;
-            break;
-        }
     }
     cout << (ok ? "YES" : "NO") << endl;
     return 0;

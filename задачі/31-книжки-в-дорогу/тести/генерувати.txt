@@ -1,0 +1,32 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/31-книжки-в-дорогу/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок (набір книжок перевіряє чекер).
+# Підзадача 1 (n ≤ 20):
+s1-rand: seed=11 n=20 W=5000 t=1 wmin=1 wmax=5000
+s1-big: seed=12 n=20 W=5000 t=1 wmin=100 wmax=1000
+s1-corr: seed=13 n=20 W=5000 t=1 wmin=500 wmax=2500 mode=corr
+s1-light: seed=14 n=20 W=50 t=1 wmin=1 wmax=20 vmax=100
+s1-unit: seed=15 n=20 W=10 t=1 mode=unit
+s1-pool: seed=16 n=20 W=100 t=1 wmin=10 wmax=60 vmax=100 pool=3
+s1-only: seed=17 n=20 W=5000 t=0 wmin=1 wmax=5000
+# Підзадача 2 (t = 0):
+s2-rand: seed=21 n=500 W=5000 t=0 wmin=1 wmax=5000
+s2-light: seed=22 n=500 W=5000 t=0 wmin=1 wmax=50
+s2-corr: seed=23 n=500 W=5000 t=0 wmin=500 wmax=2500 mode=corr
+s2-max: seed=24 n=500 W=5000 t=0 wmin=1 wmax=40 vmin=1000000000
+s2-equal: seed=25 n=500 W=4999 t=0 wmin=2 wmax=3000 mult=2 mode=equal
+s2-unit: seed=26 n=500 W=300 t=0 mode=unit
+# Підзадача 3 (усі wᵢ = 1):
+s3-few: seed=31 n=500 W=137 t=1 mode=unit
+s3-all: seed=32 n=500 W=5000 t=1 mode=unit
+s3-ties: seed=33 n=500 W=250 t=1 mode=unit vmax=10
+s3-pool: seed=34 n=500 W=40 t=1 mode=unit pool=5
+# Повні обмеження (t = 1):
+big-rand: seed=41 n=500 W=5000 t=1 wmin=1 wmax=5000
+big-light: seed=42 n=500 W=5000 t=1 wmin=1 wmax=50
+big-corr: seed=43 n=500 W=5000 t=1 wmin=500 wmax=2500 mode=corr
+big-max: seed=44 n=500 W=5000 t=1 wmin=1 wmax=40 vmin=1000000000
+big-heavy: seed=45 n=500 W=5000 t=1 wmin=2501 wmax=5000
+big-none: seed=46 n=500 W=100 t=1 wmin=101 wmax=5000
+big-mid: seed=47 n=500 W=5000 t=1 wmin=100 wmax=1000 vmax=1000
+big-equal: seed=48 n=500 W=4999 t=1 wmin=2 wmax=3000 mult=2 mode=equal
+big-pool: seed=49 n=500 W=5000 t=1 wmin=10 wmax=300 vmax=1000 pool=7

@@ -1,5 +1,5 @@
 # бали: тести підзадачі (підзадача зараховується, якщо пройдено всі її тести)
 # 1: n ≤ 1000, немає великих літер;  2: n ≤ 1000;  3: без додаткових обмежень (усі тести)
-30: 01 02 04 05 06 07 08 09 14 16 r1000-pal-lower r999-pal-lower r1000-almost-lower r1000-rand-lower
-30: 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 r1000-pal-lower r999-pal-lower r1000-almost-lower r1000-rand-lower r1000-pal-mixed r999-pal-mixed r1000-almost-mixed
-40: 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 r1000-pal-lower r999-pal-lower r1000-almost-lower r1000-rand-lower r1000-pal-mixed r999-pal-mixed r1000-almost-mixed big-pal-lower big-pal-mixed big-pal-odd-mixed big-almost-center big-almost-edge big-rand
+30: 01 02 04 05 06 07 08 09 14 16 20 r1000-pal-lower r999-pal-lower r1000-almost-lower r1000-rand-lower
+30: 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 r1000-pal-lower r999-pal-lower r1000-almost-lower r1000-rand-lower r1000-pal-mixed r999-pal-mixed r1000-almost-mixed
+40: 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 r1000-pal-lower r999-pal-lower r1000-almost-lower r1000-rand-lower r1000-pal-mixed r999-pal-mixed r1000-almost-mixed big-pal-lower big-pal-mixed big-pal-odd-mixed big-almost-center big-almost-edge big-rand

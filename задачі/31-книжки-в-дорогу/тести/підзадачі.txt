@@ -1,0 +1,6 @@
+# бали: тести підзадачі (підзадача зараховується, якщо пройдено всі її тести)
+# 1: n ≤ 20;  2: t = 0;  3: усі wᵢ = 1;  4: без додаткових обмежень (усі тести)
+20: 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 s1-rand s1-big s1-corr s1-light s1-unit s1-pool s1-only
+30: 03 05 09 10 17 s1-only s2-rand s2-light s2-corr s2-max s2-equal s2-unit
+15: 04 08 11 16 17 s1-unit s2-unit s3-few s3-all s3-ties s3-pool
+35: 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 s1-rand s1-big s1-corr s1-light s1-unit s1-pool s1-only s2-rand s2-light s2-corr s2-max s2-equal s2-unit s3-few s3-all s3-ties s3-pool big-rand big-light big-corr big-max big-heavy big-none big-mid big-equal big-pool
