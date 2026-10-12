@@ -8,6 +8,7 @@
     python інструменти/перевірити.py 13 мій.cpp       # ВАШ розв'язок задачі 13 на її тестах
     python інструменти/перевірити.py 13 мій.py
     python інструменти/перевірити.py --stress 13      # випадкові тести: еталон проти повільного розв'язку
+    python інструменти/перевірити.py --stress 13 мій.cpp   # те саме для ВАШОГО розв'язку
     python інструменти/перевірити.py --no-cpp         # лише Python (якщо немає компілятора C++)
     python інструменти/перевірити.py --тур мій-тур    # тренувальний тур: A.cpp … H.py з теки мій-тур
 
@@ -57,6 +58,12 @@ DEFAULT_TL = 1.0  # секунди, якщо в умові не вказано �
 
 # ---------------------------------------------------------------- допоміжне
 
+def task_number(arg: str) -> str:
+    """«5», «05», «05-сума-цифр» або «задачі/05-сума-цифр/» → «05»."""
+    m = re.match(r"\d+", Path(arg).name)
+    return f"{int(m.group()):02d}" if m else arg
+
+
 def find_dir(task_id: str, base: Path) -> Path | None:
     """Знаходить теку NN-назва за номером NN."""
     if not base.is_dir():
@@ -97,6 +104,32 @@ def short(text: str, limit: int = 120, keep_lines: bool = False) -> str:
     return s if len(s) <= limit else s[:limit] + " …"
 
 
+def crash_hint(code: int) -> str:
+    """Пояснення для програми, що завершилася з помилкою і нічого не написала в stderr."""
+    kinds = (
+        ((-11, 139, 0xC0000005, 0xC00000FD),  # SIGSEGV (Linux, WSL), порушення доступу і переповнення стека (Windows)
+         "звернення до чужої пам'яті — вихід за межі масиву або надто глибока рекурсія"),
+        ((-8, 136, 0xC0000094), "ділення цілого числа на нуль"),  # SIGFPE / ділення на нуль у Windows
+        ((-6, 134, 0xC0000409), "аварійна зупинка (abort)"),
+    )
+    for codes, text in kinds:
+        if code in codes:
+            return f"програма аварійно завершилася (код {code}): {text}"
+    return f"програма завершилася з кодом {code}, а не 0"
+
+
+def wsl_has_distro() -> bool:
+    """Чи встановлено в WSL хоч один дистрибутив Linux. Без нього wsl.exe може
+    хвилину чекати натискання клавіші (пропонує встановити WSL), тож спершу — реєстр."""
+    try:
+        import winreg
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER,
+                            r"Software\Microsoft\Windows\CurrentVersion\Lxss") as key:
+            return winreg.QueryInfoKey(key)[0] > 0
+    except OSError:
+        return False
+
+
 # ---------------------------------------------------------------- запуск програм
 
 class Runner:
@@ -104,16 +137,21 @@ class Runner:
 
     def __init__(self, use_cpp: bool = True):
         self.use_cpp = use_cpp
-        self.tmp = Path(tempfile.mkdtemp(prefix="olymp-check-"))
+        # resolve(): повна назва теки замість короткої на кшталт C:\Users\IVANPE~1, якої не зрозуміє WSL
+        self.tmp = Path(tempfile.mkdtemp(prefix="olymp-check-")).resolve()
         self.cxx_mode = None  # "native" | "wsl" | None
         self._compiled: dict[Path, list[str] | str] = {}
         if use_cpp:
             if shutil.which("g++"):
                 self.cxx_mode = "native"
-            elif os.name == "nt" and shutil.which("wsl"):
-                probe = subprocess.run(["wsl", "-e", "g++", "--version"], capture_output=True)
-                if probe.returncode == 0:
-                    self.cxx_mode = "wsl"
+            elif os.name == "nt" and shutil.which("wsl") and wsl_has_distro():
+                try:
+                    probe = subprocess.run(["wsl", "-e", "g++", "--version"], capture_output=True,
+                                           stdin=subprocess.DEVNULL, timeout=60)
+                    if probe.returncode == 0:
+                        self.cxx_mode = "wsl"
+                except subprocess.TimeoutExpired:
+                    pass
 
     def cleanup(self):
         shutil.rmtree(self.tmp, ignore_errors=True)
@@ -122,7 +160,8 @@ class Runner:
     def _wsl_path(p: Path) -> str:
         out = subprocess.run(["wsl", "-e", "wslpath", "-a", str(p).replace("\\", "/")],
                              capture_output=True, text=True, encoding="utf-8")
-        return out.stdout.strip()
+        # якщо wslpath не впорався — перетворюємо самі: C:\x\y → /mnt/c/x/y
+        return out.stdout.strip() or "/mnt/" + p.drive[:1].lower() + p.as_posix()[2:]
 
     def prepare(self, source: Path) -> list[str] | str:
         """Повертає команду запуску або рядок з описом, чому запуск неможливий."""
@@ -130,9 +169,9 @@ class Runner:
         if source in self._compiled:
             return self._compiled[source]
         result: list[str] | str
-        if source.suffix == ".py":
+        if source.suffix.lower() == ".py":
             result = [sys.executable, "-X", "utf8", str(source)]
-        elif source.suffix == ".cpp":
+        elif source.suffix.lower() == ".cpp":
             if not self.use_cpp:
                 result = "C++ вимкнено параметром --no-cpp"
             elif self.cxx_mode is None:
@@ -140,25 +179,32 @@ class Runner:
                           "див. довідка/СЕРЕДОВИЩЕ.md)")
             else:
                 exe = self.tmp / f"prog{len(self._compiled)}"
+                # Компілюємо копію з латинською назвою: старі MinGW не відкривають файлів
+                # із кирилицею в шляху, якщо мова Windows для не-Unicode програм — не українська.
+                src_copy = exe.with_suffix(".cpp")
+                shutil.copyfile(source, src_copy)
                 if self.cxx_mode == "native":
                     exe_s = str(exe) + (".exe" if os.name == "nt" else "")
-                    cmd = ["g++", *CXX_FLAGS, str(source), "-o", exe_s]
+                    src_s = str(src_copy)
+                    cmd = ["g++", *CXX_FLAGS, src_s, "-o", exe_s]
                     run_cmd = [exe_s]
                 else:
-                    src_w, exe_w = self._wsl_path(source), self._wsl_path(exe)
-                    cmd = ["wsl", "-e", "g++", *CXX_FLAGS, src_w, "-o", exe_w]
+                    src_s, exe_w = self._wsl_path(src_copy), self._wsl_path(exe)
+                    cmd = ["wsl", "-e", "g++", *CXX_FLAGS, src_s, "-o", exe_w]
                     run_cmd = ["wsl", "-e", exe_w]
                 res = subprocess.run(cmd, capture_output=True, text=True,
                                      encoding="utf-8", errors="replace")
+                # У повідомленнях компілятора — назва вашого файлу, а не тимчасової копії.
+                msg = res.stderr.replace(src_s, source.name).strip()
                 if res.returncode != 0:
-                    result = "помилка компіляції:\n" + res.stderr[-3000:]
+                    # Початок, а не кінець: перша помилка — справжня причина, решта — її наслідки.
+                    result = "помилка компіляції:\n" + (msg if len(msg) <= 3000 else msg[:3000] + "\n…")
                 else:
-                    if res.stderr.strip():
-                        print(f"    попередження компілятора для {source.name}:\n"
-                              + res.stderr.strip()[-1500:])
+                    if msg:
+                        print(f"    попередження компілятора для {source.name}:\n" + msg[:1500])
                     result = run_cmd
         else:
-            result = f"невідомий тип файлу: {source.name}"
+            result = f"невідомий тип файлу: {source.name} (потрібен .cpp або .py)"
         self._compiled[source] = result
         return result
 
@@ -167,12 +213,18 @@ class Runner:
         """Повертає (stdout, stderr, час, статус), де статус: OK | TLE | RE."""
         start = time.perf_counter()
         try:
-            res = subprocess.run(cmd, input=data, capture_output=True, text=True,
-                                 encoding="utf-8", errors="replace", timeout=timeout)
+            # Байти, а не текст: у текстовому режимі Windows замінює кожне «\n» входу на «\r\n»,
+            # і програма з getline (C++ через WSL) чи sys.stdin.buffer отримує зайвий символ «\r».
+            res = subprocess.run(cmd, input=data.encode("utf-8"), capture_output=True,
+                                 timeout=timeout)
         except subprocess.TimeoutExpired:
             return "", "", time.perf_counter() - start, "TLE"
         elapsed = time.perf_counter() - start
-        return res.stdout, res.stderr, elapsed, ("OK" if res.returncode == 0 else "RE")
+        out, err = (b.decode("utf-8", errors="replace").replace("\r\n", "\n")
+                    for b in (res.stdout, res.stderr))
+        if res.returncode != 0 and not err.strip():
+            err = crash_hint(res.returncode)
+        return out, err, elapsed, ("OK" if res.returncode == 0 else "RE")
 
 
 def check_answer(checker: Path | None, inp_text: str, got: str, expected: str) -> bool:
@@ -182,7 +234,7 @@ def check_answer(checker: Path | None, inp_text: str, got: str, expected: str) -
         paths = []
         for name, content in (("in.txt", inp_text), ("got.txt", got), ("exp.txt", expected)):
             p = Path(td) / name
-            p.write_text(content, encoding="utf-8")
+            p.write_bytes(content.encode("utf-8"))  # без заміни «\n» на «\r\n» у Windows
             paths.append(str(p))
         res = subprocess.run([sys.executable, "-X", "utf8", str(checker), *paths],
                              capture_output=True)
@@ -295,8 +347,13 @@ def run_tests(runner: Runner, task_id: str, sources: list[Path], verbose: bool,
         cmd = runner.prepare(src)
         label = f"[{tt.name}] {src.name}"
         if isinstance(cmd, str):
-            print(f"{label}: ПРОПУЩЕНО — {cmd}")
-            ok_all &= "компіляції" not in cmd
+            if cmd.startswith("помилка компіляції"):
+                print(f"{label}: ПОМИЛКА КОМПІЛЯЦІЇ — 0 балів. Виправляйте з першої помилки:")
+                print("    " + cmd.split("\n", 1)[1].replace("\n", "\n    "))
+            else:
+                print(f"{label}: ПРОПУЩЕНО — {cmd}")
+            # Еталон, пропущений через відсутність g++, — не помилка; а ваш неперевірений файл — 0 балів.
+            ok_all &= "компіляції" not in cmd and src in tt.references()
             if scores is not None:
                 scores[src] = 0
             continue
@@ -316,7 +373,10 @@ def run_tests(runner: Runner, task_id: str, sources: list[Path], verbose: bool,
                                 f"({'понад ' + format(hard_timeout, 'g') if status == 'TLE' else format(el, '.2f')} с"
                                 f" > {allowed:g} с)")
             elif status == "RE":
-                failures.append(f"{name}: помилка виконання\n      {err.strip()[-400:]}")
+                # повний шлях до файлу в повідомленні Python лише заважає читати
+                details = err.replace(str(src.resolve()), src.name).strip()[-400:]
+                failures.append(f"{name}: помилка виконання\n      "
+                                + details.replace("\n", "\n      "))
             elif not check_answer(checker, data, out, expected):
                 kl = checker is not None  # чекер може зважати на рядки, тож показуємо їх
                 failures.append(f"{name}: неправильна відповідь\n"
@@ -345,7 +405,9 @@ def run_tests(runner: Runner, task_id: str, sources: list[Path], verbose: bool,
     return ok_all
 
 
-def run_stress(runner: Runner, task_id: str, iterations: int, seed: int) -> bool:
+def run_stress(runner: Runner, task_id: str, iterations: int, seed: int,
+               solution: Path | None = None) -> bool:
+    """Порівнює з повільним розв'язком еталони або, якщо передано solution, — ваш файл."""
     tt = TaskTests(runner, task_id)
     sol_dir = tt.sol_dir
     if sol_dir is None:
@@ -357,12 +419,15 @@ def run_stress(runner: Runner, task_id: str, iterations: int, seed: int) -> bool
         return True
     checker = tt.checker()
     cmds = []
-    for r in tt.references():
+    for r in ([solution] if solution else tt.references()):
         c = runner.prepare(r)
         if isinstance(c, str):
             print(f"[{sol_dir.name}] {r.name}: пропущено — {c}")
         else:
             cmds.append((r.name, c))
+    if not cmds:
+        print(f"[{sol_dir.name}] стрес-тест: немає розв'язку, який можна запустити")
+        return solution is None  # без g++ еталон.cpp пропускається — це не помилка
     slow_cmd = runner.prepare(slow)
     rng = random.Random(seed)
     for _ in range(iterations):
@@ -380,10 +445,13 @@ def run_stress(runner: Runner, task_id: str, iterations: int, seed: int) -> bool
         for name, c in cmds:
             out, err, _, st = runner.run(c, data, 60)
             if st != "OK" or not check_answer(checker, data, out, expected):
+                last_err = (err.strip().splitlines() or [""])[-1][:200]  # для Python — сама назва помилки
+                verdict = {"TLE": "перевищено 60 с",
+                           "RE": f"помилка виконання — {last_err}"}.get(st, short(out, 200))
                 print(f"[{sol_dir.name}] РОЗБІЖНІСТЬ: {name}, тест: генератор.py seed={s}")
                 print("  вхід:     ", short(data, 300))
                 print("  повільний:", short(expected, 200))
-                print("  еталон:   ", short(out, 200), err[-200:])
+                print(f"  {name}:", verdict)
                 return False
     print(f"[{sol_dir.name}] стрес-тест: {iterations} випадкових тестів, розбіжностей немає "
           f"({', '.join(n for n, _ in cmds)} проти повільний.py)")
@@ -404,7 +472,14 @@ def run_tour(runner: Runner, folder: Path, verbose: bool) -> bool:
         if line:
             letter, tid = (x.strip() for x in line.split(":", 1))
             letters.append((letter, tid.zfill(2)))
-    files = {f.name.lower(): f for f in folder.iterdir() if f.is_file()}
+    # «А.cpp», набране в українській розкладці (кирилічні А, В, С, Е, Н), — це теж задача A.
+    lookalike = str.maketrans("авсен", "abceh")
+    files = {f.name.lower().translate(lookalike): f for f in folder.iterdir() if f.is_file()}
+    expected_names = {f"{letter.lower()}{ext}" for letter, _ in letters for ext in (".cpp", ".py")}
+    extra = sorted(f.name for n, f in files.items()
+                   if n.endswith((".cpp", ".py")) and n not in expected_names)
+    if extra:
+        print(f"Не перевіряються (назва має бути як A.cpp чи A.py): {', '.join(extra)}")
     results: list[tuple[str, str, str, int]] = []
     for letter, tid in letters:
         found = [files[n] for n in (f"{letter.lower()}.cpp", f"{letter.lower()}.py") if n in files]
@@ -427,13 +502,15 @@ def run_tour(runner: Runner, folder: Path, verbose: bool) -> bool:
 
 
 def main() -> int:
-    if hasattr(sys.stdout, "reconfigure"):
-        sys.stdout.reconfigure(encoding="utf-8")
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            # utf-8 — щоб не ламалася кирилиця; line_buffering — щоб у Git Bash рядки з'являлися одразу
+            stream.reconfigure(encoding="utf-8", line_buffering=True)
     ap = argparse.ArgumentParser(description="Перевірка розв'язків на тестах репозиторію")
     ap.add_argument("task", nargs="?", help="номер задачі, наприклад 13 (без нього — усі задачі)")
     ap.add_argument("solution", nargs="?", help="ваш файл .cpp або .py (без нього — еталонні розв'язки)")
     ap.add_argument("--stress", action="store_true",
-                    help="порівняти еталон із повільним розв'язком на випадкових тестах")
+                    help="порівняти еталон (або ваш файл) із повільним розв'язком на випадкових тестах")
     ap.add_argument("--iterations", type=int, default=200, help="кількість випадкових тестів для --stress")
     ap.add_argument("--seed", type=int, default=2026)
     ap.add_argument("--no-cpp", action="store_true", help="не компілювати C++")
@@ -450,17 +527,26 @@ def main() -> int:
     try:
         if args.tour:
             return 0 if run_tour(runner, Path(args.tour).resolve(), args.verbose) else 1
-        if args.task and find_dir(args.task, TASKS_DIR) is None:
+        task = task_number(args.task) if args.task else None
+        if task and find_dir(task, TASKS_DIR) is None:
             print(f"Задачу {args.task} не знайдено в теці {TASKS_DIR.name}/")
+            if Path(args.task).suffix.lower() in (".cpp", ".py"):
+                print("Спершу вкажіть номер задачі, потім файл, наприклад: "
+                      "python інструменти/перевірити.py 05 мій.py")
             return 2
-        ids = [args.task.zfill(2)] if args.task else all_task_ids()
+        solution = Path(args.solution).resolve() if args.solution else None
+        if solution and not solution.is_file():
+            print(f"Файл {args.solution} не знайдено. Перевірте назву файлу і теку, "
+                  f"з якої запускаєте скрипт (зараз це {Path.cwd()}).")
+            return 2
+        ids = [task] if task else all_task_ids()
         ok = True
         for tid in ids:
             if args.stress:
-                ok &= run_stress(runner, tid, args.iterations, args.seed)
+                ok &= run_stress(runner, tid, args.iterations, args.seed, solution)
                 continue
-            if args.solution:
-                sources = [Path(args.solution).resolve()]
+            if solution:
+                sources = [solution]
             else:
                 sources = TaskTests(runner, tid).references()
                 if not sources:
@@ -470,6 +556,9 @@ def main() -> int:
             ok &= run_tests(runner, tid, sources, args.verbose)
         print("ПІДСУМОК:", "усе пройдено" if ok else "є помилки")
         return 0 if ok else 1
+    except KeyboardInterrupt:  # Ctrl+C — без довгого англійського повідомлення Python
+        print("\nПеревірку перервано (Ctrl+C).")
+        return 130
     finally:
         runner.cleanup()
 
