@@ -907,10 +907,13 @@ def run_hack(runner: Runner, hack_args: list[str]) -> int:
         print("Жоден хибний розв'язок не вдалося запустити.")
         return 1
     print(f"Зламано {hacked} з {ran}")
-    if ran - hacked == 1:
+    # Порада про «невикриту помилку» має сенс лише для хибних розв'язків репозиторію:
+    # чужий файл (дуель) або еталон можуть бути й правильними.
+    from_repo = wrong_dir is not None and all(p.parent == wrong_dir.resolve() for p in targets)
+    if from_repo and ran - hacked == 1:
         print("Розв'язок, що вистояв, має помилку, якої ваш тест не зачепив. "
               "Подумайте, яку саме, і складіть новий тест.")
-    elif hacked < ran:
+    elif from_repo and hacked < ran:
         print("Розв'язки, що вистояли, мають помилки, яких ваш тест не зачепив. "
               "Подумайте, які саме, і складіть нові тести.")
     return 0
