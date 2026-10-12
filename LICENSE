@@ -1,6 +1,28 @@
-# MIT License
+Ліцензування матеріалів репозиторію / Licensing of this repository
+=================================================================
 
-Copyright (c) 2026 Gymnasium №6, Dnipro
+Copyright (c) 2026 Gymnasium No. 6, Dnipro (Гімназія №6, м. Дніпро)
+
+Репозиторій має дві ліцензії залежно від типу матеріалу:
+
+1. Програмний код (файли *.cpp, *.py, зокрема еталонні розв'язки, генератори
+   тестів і скрипти в теці «інструменти») — MIT License (текст нижче).
+
+2. Навчальні тексти (файли *.md: умови авторських задач, розбори, конспекти,
+   методичні матеріали) і тести — Creative Commons Attribution-ShareAlike 4.0
+   International (CC BY-SA 4.0): https://creativecommons.org/licenses/by-sa/4.0/
+   Можна копіювати, поширювати й змінювати, зокрема з комерційною метою, за
+   умови зазначення авторства та поширення похідних матеріалів на тих самих умовах.
+
+Ці ліцензії НЕ поширюються на сторонні матеріали, на які репозиторій лише
+посилається (умови задач Всеукраїнської олімпіади з інформатики, Eolymp, CSES,
+нормативні документи тощо). Їх використовують відповідно до умов правовласників.
+
+-------------------------------------------------------------------------------
+
+MIT License
+
+Copyright (c) 2026 Gymnasium No. 6, Dnipro
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,20 +42,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
+-------------------------------------------------------------------------------
 
-# Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
+Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
-For educational materials, this work is also licensed under CC BY-SA 4.0:
-https://creativecommons.org/licenses/by-sa/4.0/
-
-You are free to:
-- Share — copy and redistribute the material in any medium or format
-- Adapt — remix, transform, and build upon the material
-
-Under the following terms:
-- Attribution — You must give appropriate credit
-- ShareAlike — If you remix, transform, or build upon the material, you must
-  distribute your contributions under the same license as the original
-
-See https://creativecommons.org/licenses/by-sa/4.0/ for full details.
+Повний юридичний текст / Full legal code:
+https://creativecommons.org/licenses/by-sa/4.0/legalcode

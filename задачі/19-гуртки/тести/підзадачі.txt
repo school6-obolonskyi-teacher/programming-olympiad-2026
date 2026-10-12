@@ -1,0 +1,3 @@
+# бали: тести підзадачі (підзадача зараховується, якщо пройдено всі її тести)
+30: 01 02 03 04 05 06 07 08 09 s1-rand-a s1-rand-b s1-rand-c s1-chain s1-start s1-len
+70: 01 02 03 04 05 06 07 08 09 s1-rand-a s1-rand-b s1-rand-c s1-chain s1-start s1-len big-rand-a big-rand-b big-rand-c big-chain big-nested big-start big-len big-same

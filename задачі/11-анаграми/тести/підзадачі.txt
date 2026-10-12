@@ -1,0 +1,5 @@
+# бали: тести підзадачі (підзадача зараховується, якщо пройдено всі її тести)
+# 1: довжини слів ≤ 1000, немає великих літер;  2: довжини слів ≤ 1000;  3: без додаткових обмежень (усі тести)
+30: 01 02 03 05 06 07 08 09 10 13 14 15 17 r1000-yes-lower r1000-no-lower r1000-sumtrap-lower r1000-set-lower
+30: 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 r1000-yes-lower r1000-no-lower r1000-sumtrap-lower r1000-set-lower r1000-yes-mixed r999-difflen-mixed r1000-sumtrap-mixed
+40: 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 r1000-yes-lower r1000-no-lower r1000-sumtrap-lower r1000-set-lower r1000-yes-mixed r999-difflen-mixed r1000-sumtrap-mixed big-yes-lower big-yes-mixed big-yes-small big-no-mixed big-sumtrap big-set big-difflen

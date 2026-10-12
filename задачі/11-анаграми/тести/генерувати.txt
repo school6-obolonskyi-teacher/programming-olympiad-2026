@@ -1,0 +1,16 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/11-анаграми/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+r1000-yes-lower: seed=131 n=1000 mode=yes case=lower
+r1000-no-lower: seed=132 n=1000 mode=no case=lower
+r1000-sumtrap-lower: seed=133 n=1000 mode=sumtrap case=lower
+r1000-set-lower: seed=134 n=1000 mode=set case=lower alpha=small
+r1000-yes-mixed: seed=135 n=1000 mode=yes case=mixed
+r999-difflen-mixed: seed=136 n=999 mode=difflen case=mixed
+r1000-sumtrap-mixed: seed=137 n=1000 mode=sumtrap case=mixed
+big-yes-lower: seed=141 n=1000000 mode=yes case=lower
+big-yes-mixed: seed=142 n=1000000 mode=yes case=mixed
+big-yes-small: seed=143 n=1000000 mode=yes case=mixed alpha=small
+big-no-mixed: seed=144 n=1000000 mode=no case=mixed
+big-sumtrap: seed=145 n=1000000 mode=sumtrap case=mixed
+big-set: seed=146 n=1000000 mode=set case=lower
+big-difflen: seed=147 n=999999 mode=difflen case=mixed

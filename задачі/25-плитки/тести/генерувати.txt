@@ -1,0 +1,25 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/25-плитки/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# n ≤ 10^6
+s1-rand1: seed=11 nmax=1000000
+s1-rand2: seed=12 nmax=1000000
+s1-prime: seed=13 nmax=1000000 mode=prime
+s1-square: seed=14 nmax=1000000 mode=square
+s1-semi: seed=15 nmax=1000000 mode=semiprime
+s1-smooth: seed=16 nmax=1000000 mode=smooth
+# n ≤ 10^9
+s2-rand1: seed=21 nmax=1000000000
+s2-rand2: seed=22 nmax=1000000000
+s2-prime: seed=23 nmax=1000000000 mode=prime
+s2-square: seed=24 nmax=1000000000 mode=square
+s2-primesq: seed=25 nmax=1000000000 mode=primesq
+s2-semi: seed=26 nmax=1000000000 mode=semiprime
+s2-smooth: seed=27 nmax=1000000000 mode=smooth
+# n ≤ 10^12
+b-rand1: seed=31 nmax=1000000000000
+b-rand2: seed=32 nmax=1000000000000
+b-prime: seed=33 nmax=1000000000000 mode=prime
+b-square: seed=34 nmax=1000000000000 mode=square
+b-primesq: seed=35 nmax=1000000000000 mode=primesq
+b-semi: seed=36 nmax=1000000000000 mode=semiprime
+b-smooth: seed=37 nmax=1000000000000 mode=smooth

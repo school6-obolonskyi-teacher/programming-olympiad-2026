@@ -1,0 +1,24 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/26-рейтинг/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Підзадача 1: n ≤ 800, усі бали різні
+s1-rand: seed=11 n=800 smode=distinct
+s1-rev: seed=12 n=800 smode=distinct order=reversed
+s1-sorted: seed=13 n=800 smode=distinct tmax=10 order=sorted
+s1-tmax: seed=14 n=500 smode=distinct tmin=1000000000
+# Підзадача 2: n ≤ 1000
+s2-rand: seed=21 n=1000
+s2-ties: seed=22 n=1000 smax=10
+s2-dup: seed=23 n=1000 smax=3 tmax=3
+s2-same: seed=24 n=1000 smin=800 tmin=1000000000
+s2-high-t: seed=25 n=1000 smax=2 tmin=999999990
+s2-zero: seed=26 n=1000 smax=0
+s2-rev: seed=27 n=1000 smax=50 tmax=100 order=reversed
+# Підзадача 3: n ≤ 2·10^5
+b-rand: seed=31 n=200000
+b-ties: seed=32 n=200000 smax=10
+b-dup: seed=33 n=200000 smax=3 tmax=3
+b-same: seed=34 n=200000 smin=800 tmin=1000000000
+b-high-t: seed=35 n=200000 tmin=999999000
+b-zero: seed=36 n=200000 smax=0
+b-rev: seed=37 n=200000 order=reversed
+b-sorted: seed=38 n=200000 tmax=1000 order=sorted

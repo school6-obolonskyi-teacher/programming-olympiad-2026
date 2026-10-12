@@ -1,0 +1,11 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/16-прості-числа/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+s1-rand: seed=11 q=100000 rmax=1000
+s1-point: seed=12 q=100000 rmax=1000 mode=point
+s1-full: seed=13 q=100000 rmax=1000 mode=full
+s2-full: seed=21 q=100 rmax=1000000 mode=full
+s2-rand: seed=22 q=100 rmax=1000000
+b-rand: seed=31 q=100000 rmax=1000000
+b-full: seed=32 q=100000 rmax=1000000 mode=full
+b-point: seed=33 q=100000 rmax=1000000 mode=point
+b-short: seed=34 q=100000 rmax=1000000 mode=short

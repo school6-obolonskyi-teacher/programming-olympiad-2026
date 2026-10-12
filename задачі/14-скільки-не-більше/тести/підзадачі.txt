@@ -1,0 +1,3 @@
+# бали: тести підзадачі (підзадача зараховується, якщо пройдено всі її тести)
+30: 01 02 03 04 05 s-rand s-dup s-equal
+70: 01 02 03 04 05 s-rand s-dup s-equal b-rand b-dup b-equal b-sorted b-desc

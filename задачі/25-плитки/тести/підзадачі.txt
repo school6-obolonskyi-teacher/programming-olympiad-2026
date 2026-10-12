@@ -1,0 +1,4 @@
+# бали: тести підзадачі (підзадача зараховується, якщо пройдено всі її тести)
+30: 01 02 03 04 05 06 07 08 09 10 s1-rand1 s1-rand2 s1-prime s1-square s1-semi s1-smooth
+30: 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 s1-rand1 s1-rand2 s1-prime s1-square s1-semi s1-smooth s2-rand1 s2-rand2 s2-prime s2-square s2-primesq s2-semi s2-smooth
+40: 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 s1-rand1 s1-rand2 s1-prime s1-square s1-semi s1-smooth s2-rand1 s2-rand2 s2-prime s2-square s2-primesq s2-semi s2-smooth b-rand1 b-rand2 b-prime b-square b-primesq b-semi b-smooth

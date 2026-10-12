@@ -1,0 +1,4 @@
+# бали: тести підзадачі (підзадача зараховується, якщо пройдено всі її тести)
+30: 01 04 s1-rand s1-point s1-full
+30: 01 02 03 04 s2-full s2-rand
+40: 01 02 03 04 s1-rand s1-point s1-full s2-full s2-rand b-rand b-full b-point b-short

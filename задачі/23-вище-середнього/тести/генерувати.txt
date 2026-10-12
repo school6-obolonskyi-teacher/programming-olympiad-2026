@@ -1,0 +1,28 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/23-вище-середнього/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Підзадача 1: n ≤ 100, aᵢ ≤ 100.
+s1-random: seed=11 n=100 amax=100
+s1-exact: seed=12 n=100 amax=100 mode=exact
+s1-below: seed=13 n=100 amax=100 mode=below
+s1-above: seed=14 n=100 amax=100 mode=above
+s1-onebig: seed=15 n=100 amax=100 mode=onebig
+s1-binary: seed=16 n=99 amax=1
+s1-max: seed=17 n=100 amax=100 mode=below m=100
+# Підзадача 2: aᵢ ≤ 10⁴ (сума і добутки aᵢ·n ще вміщуються в int).
+s2-random: seed=21 n=200000 amax=10000
+s2-exact: seed=22 n=200000 amax=10000 mode=exact
+s2-below: seed=23 n=200000 amax=10000 mode=below
+s2-above: seed=24 n=200000 amax=10000 mode=above
+s2-onebig: seed=25 n=200000 amax=10000 mode=onebig
+s2-int-edge: seed=26 n=200000 amax=10000 mode=equal
+s2-int-below: seed=27 n=200000 amax=10000 mode=below m=10000
+# Підзадача 3: без додаткових обмежень (сума до 2·10¹⁴).
+m-random: seed=31 n=1000 amax=1000000000
+b-random: seed=32 n=200000 amax=1000000000
+b-exact: seed=33 n=200000 amax=1000000000 mode=exact
+b-below: seed=34 n=200000 amax=1000000000 mode=below
+b-above: seed=35 n=200000 amax=1000000000 mode=above
+b-onebig: seed=36 n=200000 amax=1000000000 mode=onebig
+b-onebig-zero: seed=37 n=200000 amax=1000000000 mode=onebig small=0
+b-max: seed=38 n=200000 amax=1000000000 mode=equal
+b-max-below: seed=39 n=200000 amax=1000000000 mode=below m=1000000000

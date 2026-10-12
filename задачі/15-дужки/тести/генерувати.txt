@@ -1,0 +1,19 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/15-дужки/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Лише круглі дужки (підзадача 1)
+r-valid: seed=11 n=200000 kinds=1 mode=valid
+r-deep: seed=12 n=200000 kinds=1 mode=deep
+r-shift: seed=13 n=200000 kinds=1 mode=shift
+r-open: seed=14 n=200000 kinds=1 mode=open
+r-close: seed=15 n=200000 kinds=1 mode=close
+r-random: seed=16 n=200000 kinds=1 mode=random
+# Усі три типи дужок
+m-valid: seed=21 n=200000 kinds=3 mode=valid
+m-deep: seed=22 n=200000 kinds=3 mode=deep
+m-swap: seed=23 n=200000 kinds=3 mode=swap base=valid
+m-swap-deep: seed=24 n=200000 kinds=3 mode=swap base=deep
+m-retype: seed=25 n=200000 kinds=3 mode=retype
+m-shift: seed=26 n=200000 kinds=3 mode=shift
+m-open: seed=27 n=200000 kinds=3 mode=open
+m-close: seed=28 n=200000 kinds=3 mode=close
+m-random: seed=29 n=200000 kinds=3 mode=random

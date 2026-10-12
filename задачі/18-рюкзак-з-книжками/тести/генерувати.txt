@@ -1,0 +1,23 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/18-рюкзак-з-книжками/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# n ≤ 100
+s1-rand: seed=11 n=100 wmax=1000000000
+s1-exact: seed=12 n=100 wmax=10 smode=exact
+s1-small: seed=13 n=100 wmax=1000 smode=small
+s1-tiny: seed=14 n=100 wmax=1000000000 smode=tiny
+s1-mixed: seed=15 n=100 wmax=1000000000 wmode=mixed smode=half
+# n ≤ 5000
+s2-rand: seed=21 n=5000 wmax=1000000000
+s2-half: seed=22 n=5000 wmax=1000000000 smode=half
+s2-exact: seed=23 n=5000 wmax=10 smode=exact
+s2-huge: seed=24 n=5000 wmax=1000000000 wmode=equal smode=huge
+s2-small: seed=25 n=5000 wmax=1000 smode=small
+# n ≤ 2·10^5
+b-rand: seed=31 n=200000 wmax=1000000000
+b-half: seed=32 n=200000 wmax=1000000000 smode=half
+b-huge: seed=33 n=200000 wmax=1000000000 wmode=equal smode=huge
+b-exact: seed=34 n=200000 wmax=1000 smode=exact
+b-small: seed=35 n=200000 wmax=1000000000 smode=small
+b-tiny: seed=36 n=200000 wmax=1000000000 smode=tiny
+b-mixed: seed=37 n=200000 wmax=1000000000 wmode=mixed smode=small
+b-ones: seed=38 n=200000 wmax=1

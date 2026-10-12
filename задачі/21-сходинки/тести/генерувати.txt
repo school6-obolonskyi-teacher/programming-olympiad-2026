@@ -1,0 +1,15 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/21-сходинки/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Підзадача 1 (n ≤ 20):
+s1-a: seed=11 n=20 cmax=10000
+s1-b: seed=12 n=20 cmax=1
+s1-c: seed=13 n=19 cmax=100
+s1-trap: seed=14 n=20 cmax=10000 mode=trap
+# Повні обмеження:
+mid-rand: seed=21 n=5000 cmax=10000
+big-rand: seed=22 n=200000 cmax=10000
+big-small: seed=23 n=200000 cmax=1
+big-max: seed=24 n=200000 cmax=10000 mode=const
+big-trap: seed=25 n=200000 cmax=10000 mode=trap
+big-alt: seed=26 n=199999 cmax=10000 mode=alt
+big-zero: seed=27 n=200000 cmax=0

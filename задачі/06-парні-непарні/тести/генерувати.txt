@@ -1,0 +1,12 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/06-парні-непарні/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+r1000-pos: seed=61 n=1000 amin=0 amax=1000000000
+r1000-small: seed=62 n=1000 amin=0 amax=3
+r1000-mixed: seed=63 n=1000 amin=-1000000000 amax=1000000000
+r1000-neg: seed=64 n=1000 amin=-1000000000 amax=-1
+r1000-negodd: seed=65 n=1000 amin=-1000000000 amax=0 mode=odd
+big-pos: seed=71 n=200000 amin=0 amax=1000000000
+big-mixed: seed=72 n=200000 amin=-1000000000 amax=1000000000
+big-small: seed=73 n=200000 amin=-2 amax=2
+big-negodd: seed=74 n=200000 amin=-1000000000 amax=-1 mode=odd
+big-even: seed=75 n=200000 amin=-1000000000 amax=1000000000 mode=even

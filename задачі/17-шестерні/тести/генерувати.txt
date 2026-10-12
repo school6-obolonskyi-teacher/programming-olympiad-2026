@@ -1,0 +1,13 @@
+# Випадкові тести: «назва: аргументи для вчителю/розбори/17-шестерні/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+s-rand1: seed=11 amax=1000
+s-rand2: seed=12 amax=1000
+s-common: seed=13 amax=1000 mode=common
+s-mult: seed=14 amax=1000 mode=multiple
+s-coprime: seed=15 amax=1000 mode=coprime
+b-rand1: seed=21 amax=1000000000
+b-rand2: seed=22 amax=1000000000
+b-rand3: seed=23 amax=1000000000
+b-common: seed=24 amax=1000000000 mode=common
+b-mult: seed=25 amax=1000000000 mode=multiple
+b-coprime: seed=26 amax=1000000000 mode=coprime

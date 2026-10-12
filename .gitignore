@@ -1,60 +1,32 @@
-# Ignore personal/private files
+# Редактори та ОС
 .DS_Store
+Thumbs.db
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-.env
-.env.local
 
-# Ignore compiled files
+# Скомпільовані програми. НЕ «*.out»: файли тестів задачі/NN/тести/*.out мають бути в репозиторії
+a.out
 *.o
 *.exe
-*.dll
-*.dylib
-*.so
-*.a
-*.out
-*.class
+
+# Python
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-.Python
-env/
 venv/
-.venv
+.venv/
 
-# IDE and editor files
-.sublime-project
-.sublime-workspace
-*.iml
-.gradle/
-.mvn/
-target/
-
-# OS-specific
-Thumbs.db
-.AppleDouble
-.LSOverride
-.Spotlight-V100
-.Trashes
-
-# Student work (if stored locally)
+# Особисті розв'язки й чернетки учнів (не публікуються)
+мій-тур/
+мої-розвязки/
 student_solutions/
 my_attempts/
 local_tests/
 
-# Backup files
-*.bak
-*.backup
-*~
-
-# Temporary test files
-test_output.txt
-debug.log
-
-# Personal notes
+# Секрети й особисті нотатки
+.env
+.env.local
 NOTES.md
 PRIVATE.txt

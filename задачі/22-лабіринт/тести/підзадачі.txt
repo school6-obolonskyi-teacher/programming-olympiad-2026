@@ -1,0 +1,4 @@
+# бали: тести підзадачі (підзадача зараховується, якщо пройдено всі її тести)
+20: 03 04 06 10 12 e-small e50 e50r e500 e500r e1x500 e500x1
+30: 01 02 03 05 06 07 08 09 10 11 12 e-small e50 e50r r50a r50b r50c snake50 maze50 closed50 wall50 gap50 x1x50
+50: 01 02 03 04 05 06 07 08 09 10 11 12 e-small e50 e50r e500 e500r e1x500 e500x1 r50a r50b r50c snake50 maze50 closed50 wall50 gap50 x1x50 r500a r500b r500c snake500 maze500 maze499 closed500 gap500 snake1x500

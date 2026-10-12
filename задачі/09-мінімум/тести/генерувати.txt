@@ -1,0 +1,13 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/09-мінімум/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+r1000-neg: seed=91 n=1000 amin=-1000000000 amax=0
+r1000-negsmall: seed=92 n=1000 amin=-5 amax=0
+r1000-mixed: seed=93 n=1000 amin=-1000000000 amax=1000000000
+r1000-pos: seed=94 n=1000 amin=1000000 amax=1000000000
+big-mixed: seed=101 n=200000 amin=-1000000000 amax=1000000000
+big-pos: seed=102 n=200000 amin=1 amax=1000000000
+big-neg: seed=103 n=200000 amin=-1000000000 amax=0
+big-max: seed=104 n=200000 amin=1000000000 amax=1000000000 mode=const
+big-desc: seed=105 n=200000 amin=-1000000000 amax=1000000000 mode=desc
+big-asc: seed=106 n=200000 amin=-1000000000 amax=1000000000 mode=asc
+big-lastmin: seed=107 n=200000 amin=999999999 amax=1000000000 mode=lastmin

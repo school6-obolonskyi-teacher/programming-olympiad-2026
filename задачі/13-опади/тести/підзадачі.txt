@@ -1,0 +1,4 @@
+# бали: тести підзадачі (підзадача зараховується, якщо пройдено всі її тести)
+30: 01 02 03 04 r1000a r1000b full1000
+30: 01 03 04 r1000b big-small-a big-int-edge
+40: 01 02 03 04 r1000a r1000b full1000 big-small-a big-int-edge big-random big-max

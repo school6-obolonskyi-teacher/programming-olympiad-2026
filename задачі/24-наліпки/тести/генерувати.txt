@@ -1,0 +1,21 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/24-наліпки/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# n ≤ 1000
+s1-rand: seed=11 n=1000 amax=1000000000
+s1-distinct: seed=12 n=1000 amax=1000000000 mode=distinct
+s1-pool: seed=13 n=1000 amax=1000000000 mode=pool k=30
+s1-tie: seed=14 n=1000 amax=1000000000 mode=tie k=5 f=20
+s1-small: seed=15 n=1000 amax=10
+# aᵢ ≤ 10^6
+s2-rand: seed=21 n=200000 amax=1000000
+s2-distinct: seed=22 n=200000 amax=1000000 mode=distinct
+s2-pool: seed=23 n=200000 amax=1000000 mode=pool k=1000
+s2-tie: seed=24 n=200000 amax=1000000 mode=tie k=7 f=3
+s2-same: seed=25 n=200000 amax=1000000 mode=same
+# без додаткових обмежень
+b-rand: seed=31 n=200000 amax=1000000000
+b-distinct: seed=32 n=200000 amax=1000000000 mode=distinct
+b-pool: seed=33 n=200000 amax=1000000000 mode=pool k=50000
+b-tie: seed=34 n=200000 amax=1000000000 mode=tie k=10 f=3
+b-tie-big: seed=35 n=200000 amax=1000000000 mode=tie k=8 f=1000
+b-same: seed=36 n=200000 amax=1000000000 mode=same

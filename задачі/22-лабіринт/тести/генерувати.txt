@@ -1,0 +1,30 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/22-лабіринт/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Підзадача 1 (стін немає):
+e-small: seed=11 n=5 m=7 mode=empty
+e50: seed=12 n=50 m=50 mode=empty sf=corners
+e50r: seed=13 n=37 m=50 mode=empty
+e500: seed=14 n=500 m=500 mode=empty sf=corners
+e500r: seed=15 n=500 m=500 mode=empty
+e1x500: seed=16 n=1 m=500 mode=empty
+e500x1: seed=17 n=500 m=1 mode=empty sf=corners
+# Підзадача 2 (n, m ≤ 50):
+r50a: seed=21 n=50 m=50 mode=random p=0.3
+r50b: seed=22 n=50 m=50 mode=random p=0.4
+r50c: seed=23 n=31 m=47 mode=random p=0.2
+snake50: seed=24 n=50 m=50 mode=snake
+maze50: seed=25 n=49 m=49 mode=maze
+closed50: seed=26 n=50 m=50 mode=closed p=0.2
+wall50: seed=27 n=50 m=50 mode=wall gaps=0
+gap50: seed=28 n=50 m=50 mode=wall gaps=1
+x1x50: seed=29 n=1 m=50 mode=random p=0.1
+# Повні обмеження:
+r500a: seed=31 n=500 m=500 mode=random p=0.3
+r500b: seed=32 n=500 m=500 mode=random p=0.4
+r500c: seed=433 n=500 m=200 mode=random p=0.35
+snake500: seed=34 n=500 m=500 mode=snake
+maze500: seed=35 n=500 m=500 mode=maze
+maze499: seed=36 n=499 m=499 mode=maze
+closed500: seed=37 n=500 m=500 mode=closed p=0
+gap500: seed=38 n=500 m=500 mode=wall gaps=1
+snake1x500: seed=39 n=500 m=3 mode=snake

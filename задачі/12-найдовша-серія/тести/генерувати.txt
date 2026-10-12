@@ -1,0 +1,18 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/12-найдовша-серія/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Підзадача 1: n ≤ 1000.
+s-equal: seed=11 n=1000 mode=equal
+s-last: seed=12 n=1000 mode=last lmax=50
+s-first: seed=13 n=1000 mode=first lmax=50
+s-blocks: seed=14 n=1000 mode=blocks lmax=20 vmax=2
+s-random: seed=15 n=1000 mode=random vmax=1
+s-alt: seed=16 n=1000 mode=alt
+# Підзадача 2: n ≤ 2·10⁵.
+big-equal: seed=21 n=200000 mode=equal
+big-last: seed=22 n=200000 mode=last lmax=1000
+big-first: seed=23 n=200000 mode=first lmax=1000
+big-blocks: seed=24 n=200000 mode=blocks lmax=100000
+big-last-long: seed=25 n=200000 mode=last lmax=60000
+big-random: seed=26 n=200000 mode=random vmax=1
+big-wide: seed=27 n=200000 mode=random vmax=1000000000
+big-alt: seed=28 n=200000 mode=alt

@@ -1,0 +1,15 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/10-паліндром/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+r1000-pal-lower: seed=111 n=1000 mode=pal case=lower
+r999-pal-lower: seed=112 n=999 mode=pal case=lower alpha=small
+r1000-almost-lower: seed=113 n=1000 mode=almost case=lower pos=center
+r1000-rand-lower: seed=114 n=1000 mode=rand case=lower alpha=small
+r1000-pal-mixed: seed=115 n=1000 mode=pal case=mixed
+r999-pal-mixed: seed=116 n=999 mode=pal case=mixed alpha=small
+r1000-almost-mixed: seed=117 n=1000 mode=almost case=mixed
+big-pal-lower: seed=121 n=200000 mode=pal case=lower
+big-pal-mixed: seed=122 n=200000 mode=pal case=mixed
+big-pal-odd-mixed: seed=123 n=199999 mode=pal case=mixed alpha=small
+big-almost-center: seed=124 n=200000 mode=almost case=mixed pos=center
+big-almost-edge: seed=125 n=200000 mode=almost case=mixed pos=edge
+big-rand: seed=126 n=200000 mode=rand case=mixed

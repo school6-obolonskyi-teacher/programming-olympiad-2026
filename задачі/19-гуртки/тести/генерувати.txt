@@ -1,0 +1,18 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/19-гуртки/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Підзадача 1 (n ≤ 15):
+s1-rand-a: seed=101 n=15 cmax=20 lmax=5
+s1-rand-b: seed=102 n=15 cmax=1000000000 lmax=1000000000
+s1-rand-c: seed=103 n=15 cmax=50 lmax=10
+s1-chain: seed=104 n=15 cmax=1000000000 mode=chain
+s1-start: seed=105 n=15 cmax=100 lmax=10 mode=start-trap
+s1-len: seed=106 n=15 cmax=1000 mode=len-trap
+# Повні обмеження:
+big-rand-a: seed=201 n=200000 cmax=1000000000 lmax=100000
+big-rand-b: seed=202 n=200000 cmax=1000 lmax=10
+big-rand-c: seed=203 n=200000 cmax=1000000000 lmax=1000000000
+big-chain: seed=204 n=200000 cmax=1000000000 mode=chain
+big-nested: seed=205 n=200000 cmax=1000000000 mode=nested
+big-start: seed=206 n=200000 cmax=1000000000 lmax=10000 mode=start-trap
+big-len: seed=207 n=200000 cmax=1000000000 mode=len-trap
+big-same: seed=208 n=200000 cmax=1000000000 lmax=1000000000 mode=same

@@ -1,0 +1,12 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/03-трикутник/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# Підзадача 1: a, b, c ≤ 1000.
+s1: seed=11 vmax=1000 mode=random
+s2: seed=12 vmax=1000 mode=near
+s3: seed=13 vmax=1000 mode=near
+s4: seed=14 vmax=10 mode=random
+# Підзадача 2: a, b, c ≤ 2·10⁹.
+big1: seed=21 vmax=2000000000 mode=random
+big2: seed=22 vmax=2000000000 mode=near
+big3: seed=23 vmax=2000000000 mode=near
+big4: seed=24 vmax=2000000000 mode=top

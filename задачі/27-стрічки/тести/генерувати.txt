@@ -1,0 +1,30 @@
+# Великі та випадкові тести: «назва: аргументи для вчителю/розбори/27-стрічки/генератор.py».
+# Вхід створює генератор, правильну відповідь — еталонний розв'язок.
+# n ≤ 1000, aᵢ ≤ 1000
+s1-rand: seed=11 n=1000 amax=1000
+s1-tight: seed=12 n=1000 amax=1000 kmode=tight
+s1-one: seed=13 n=1000 amax=1000 kmode=one
+s1-sum: seed=14 n=1000 amax=1000 kmode=sum
+s1-over: seed=15 n=1000 amax=1000 kmode=over
+s1-small: seed=16 n=1000 amax=1000 kmode=small
+s1-onebig: seed=17 n=1000 amax=1000 amode=onebig kmode=tight
+# aᵢ ≤ 10^4, n ≤ 2·10^5
+s2-rand: seed=21 n=200000 amax=10000
+s2-tight: seed=22 n=200000 amax=10000 kmode=tight
+s2-one: seed=23 n=200000 amax=10000 kmode=one
+s2-small: seed=24 n=200000 amax=10000 kmode=small
+s2-int: seed=25 n=200000 amax=10000 amode=equal k=1000000000
+s2-int1: seed=26 n=200000 amax=9999 amode=equal k=1000000000
+s2-over: seed=27 n=200000 amax=5000 kmode=huge
+s2-sum: seed=28 n=100000 amax=10000 amode=equal kmode=sum
+s2-eq: seed=29 n=200000 amax=10000 amode=equal k=200000
+# без додаткових обмежень
+b-rand: seed=31 n=200000 amax=1000000000
+b-tight: seed=32 n=200000 amax=1000000000 kmode=tight
+b-one: seed=33 n=200000 amax=1000000000 kmode=one
+b-small: seed=34 n=200000 amax=1000000000 kmode=small
+b-max: seed=35 n=200000 amax=1000000000 amode=equal k=1000000000
+b-ovf: seed=36 n=200000 amax=14999 amode=equal k=1000000000
+b-ovf-rand: seed=37 n=200000 amin=10001 amax=20000 kmode=huge
+b-ovf6: seed=39 n=200000 amax=32714 amode=equal k=1000000000
+b-onebig: seed=38 n=200000 amax=1000000000 amode=onebig k=1000
