@@ -993,6 +993,8 @@ def read_forecast(folder: Path, letters: list[tuple[str, str]]) -> dict[str, tup
             print(f"{FORECAST_FILE}, рядок {i}: не зрозумів «{line}» — потрібно, наприклад, "
                   f"«A: 100» або «A: 100 20» (бали від 0 до 100 і хвилини)")
             continue
+        if letter in res:
+            print(f"{FORECAST_FILE}, рядок {i}: прогноз для задачі {letter} уже був — беру цей, останній")
         res[letter] = (int(m.group(2)), int(m.group(3)) if m.group(3) else None)
     return res
 
